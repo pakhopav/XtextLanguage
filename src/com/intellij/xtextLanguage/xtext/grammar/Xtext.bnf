@@ -7,6 +7,52 @@
         SL_COMMENT = 'regexp: //.*'
         WS = 'regexp:\s+'
         ANY_OTHER ='regexp:.'
+        GRAMMAR = "grammar"
+        WITH = "with"
+        HIDDEN = "hidden"
+        GENERATE = "generate"
+        IMPORT = "import"
+        RETURNS = "returns"
+        COMMA = ","
+        L_BRACKET = "("
+        R_BRACKET = ")"
+        AT_SIGN = "@"
+        FRAGMENT = "fragment"
+        SEMICOLON = ";"
+        L_ANGLE_BRACKET = "<"
+        R_ANGLE_BRACKET = ">"
+        L_BRACE = "{"
+        R_BRACE = "}"
+        L_SQUARE_BRACKET = "["
+        R_SQUARE_BRACKET = "]"
+        AMPERSAND = "&"
+        ACX_MARK = "!"
+        AS = "as"
+        COLON =":"
+        ASTERISK ="*"
+        TRUE = "true"
+        FALCE = "false"
+        EQUALS = "="
+        TERMINAL = "terminal"
+        ENUM = "enum"
+        PRED = "=>"
+        WEAK_PRED = "->"
+        PIPE = "|"
+        PLUS = "+"
+        QUES_MARK = "?"
+        RANGE = ".."
+        DOT = "."
+        PLUS_EQUALS = "+="
+        QUES_EQUALS = "?="
+        CURRENT = "current"
+        EOF_KEY = "EOF"
+        COLONS = "::"
+
+
+
+
+
+
     ]
 
 
@@ -29,7 +75,7 @@
   generateTokens=true
 }
 Grammar::=
-	'grammar' GrammarID ('with' REFERENCE_Grammar_GrammarID/* usedGrammars+=[Grammar|GrammarID]*/ (',' REFERENCE_Grammar_GrammarID)*)?
+	"grammar" GrammarID ('with' REFERENCE_Grammar_GrammarID/* usedGrammars+=[Grammar|GrammarID]*/ (',' REFERENCE_Grammar_GrammarID)*)?
 	('hidden' '(' (REFERENCE_AbstractRule_RuleID/* usedGrammars+=[Grammar|GrammarID]*/ (',' REFERENCE_AbstractRule_RuleID)*)? ')')?
 	AbstractMetamodelDeclaration*
 	(AbstractRule)+

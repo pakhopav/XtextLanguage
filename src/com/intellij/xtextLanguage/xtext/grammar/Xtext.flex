@@ -23,11 +23,53 @@ STRING = (\"([^\"\\]|\\.)*\"|'([^'\\]|\\.)*')
 INT=[0-9]+
 WS=[ \t\n\x0B\f\r]+
 SL_COMMENT = \/\/.*
-ML_COMMENT = \/\*(([ \t\n\x0B\f\r])|(.))*\*\/
 
-
+COMMENT_TAIL=([^"*"]*("*"+[^"*""/"])?)*("*"+"/")?
+ML_COMMENT=("/*"{COMMENT_TAIL})|"/*"
 %%
 <YYINITIAL> {
+
+"grammar" {return GRAMMAR;}
+"with" {return WITH;}
+"generate" {return GENERATE;}
+"import" {return IMPORT;}
+"hidden" {return HIDDEN;}
+"returns" {return RETURNS;}
+"," {return COMMA;}
+"(" {return L_BRACKET;}
+")" {return R_BRACKET;}
+"@" {return AT_SIGN;}
+"fragment" {return FRAGMENT;}
+";" {return SEMICOLON;}
+"<" {return L_ANGLE_BRACKET;}
+">" {return R_ANGLE_BRACKET;}
+"{" {return L_BRACE;}
+"}" {return R_BRACE;}
+"[" {return L_SQUARE_BRACKET;}
+"]" {return R_SQUARE_BRACKET;}
+"&" {return AMPERSAND;}
+"!" {return ACX_MARK;}
+"as" {return AS;}
+":" {return COLON;}
+"*" {return ASTERISK;}
+"true" {return TRUE;}
+"false" {return FALCE;}
+"=" {return EQUALS;}
+"terminal" {return TERMINAL;}
+"enum" {return ENUM;}
+"=>" {return PRED;}
+"->" {return WEAK_PRED;}
+"|" {return PIPE;}
+"+" {return PLUS;}
+"?" {return QUES_MARK;}
+".." {return RANGE;}
+"." {return DOT;}
+"+=" {return PLUS_EQUALS;}
+"?=" {return QUES_EQUALS;}
+"current" {return CURRENT;}
+"EOF" {return EOF_KEY;}
+"::" {return COLONS;}
+
 
 {ID} {return ID; }
 {STRING} {return STRING;}
