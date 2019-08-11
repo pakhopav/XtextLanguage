@@ -8,10 +8,11 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.intellij.xtextLanguage.xtext.psi.XtextTypes.*;
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
+import com.intellij.xtextLanguage.xtext.psi.impl.XtextPsiCompositeElementImpl;
 import com.intellij.xtextLanguage.xtext.psi.*;
+import com.intellij.xtextLanguage.xtext.psi.impl.XtextPsiImplUtil;
 
-public class XtextEnumLiteralDeclarationImpl extends ASTWrapperPsiElement implements XtextEnumLiteralDeclaration {
+public class XtextEnumLiteralDeclarationImpl extends XtextPsiCompositeElementImpl implements XtextEnumLiteralDeclaration {
 
   public XtextEnumLiteralDeclarationImpl(@NotNull ASTNode node) {
     super(node);

@@ -8,10 +8,11 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.intellij.xtextLanguage.xtext.psi.XtextTypes.*;
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
+import com.intellij.xtextLanguage.xtext.psi.impl.XtextPsiCompositeElementImpl;
 import com.intellij.xtextLanguage.xtext.psi.*;
+import com.intellij.xtextLanguage.xtext.psi.impl.XtextPsiImplUtil;
 
-public class XtextNegationImpl extends ASTWrapperPsiElement implements XtextNegation {
+public class XtextNegationImpl extends XtextPsiCompositeElementImpl implements XtextNegation {
 
   public XtextNegationImpl(@NotNull ASTNode node) {
     super(node);

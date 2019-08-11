@@ -8,10 +8,11 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.intellij.xtextLanguage.xtext.psi.XtextTypes.*;
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
+import com.intellij.xtextLanguage.xtext.psi.impl.XtextPsiCompositeElementImpl;
 import com.intellij.xtextLanguage.xtext.psi.*;
+import com.intellij.xtextLanguage.xtext.psi.impl.XtextPsiImplUtil;
 
-public class XtextParenthesizedTerminalElementImpl extends ASTWrapperPsiElement implements XtextParenthesizedTerminalElement {
+public class XtextParenthesizedTerminalElementImpl extends XtextPsiCompositeElementImpl implements XtextParenthesizedTerminalElement {
 
   public XtextParenthesizedTerminalElementImpl(@NotNull ASTNode node) {
     super(node);

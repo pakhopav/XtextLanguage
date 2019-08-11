@@ -8,10 +8,11 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.intellij.xtextLanguage.xtext.psi.XtextTypes.*;
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
+import com.intellij.xtextLanguage.xtext.psi.impl.XtextPsiCompositeElementImpl;
 import com.intellij.xtextLanguage.xtext.psi.*;
+import com.intellij.xtextLanguage.xtext.psi.impl.XtextPsiImplUtil;
 
-public class XtextParameterReferenceImpl extends ASTWrapperPsiElement implements XtextParameterReference {
+public class XtextParameterReferenceImpl extends XtextPsiCompositeElementImpl implements XtextParameterReference {
 
   public XtextParameterReferenceImpl(@NotNull ASTNode node) {
     super(node);

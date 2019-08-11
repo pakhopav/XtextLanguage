@@ -8,10 +8,11 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.intellij.xtextLanguage.xtext.psi.XtextTypes.*;
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
+import com.intellij.xtextLanguage.xtext.psi.impl.XtextNamedElementImpl;
 import com.intellij.xtextLanguage.xtext.psi.*;
+import com.intellij.xtextLanguage.xtext.psi.impl.XtextPsiImplUtil;
 
-public class XtextAbstractRuleImpl extends ASTWrapperPsiElement implements XtextAbstractRule {
+public class XtextAbstractRuleImpl extends XtextNamedElementImpl implements XtextAbstractRule {
 
   public XtextAbstractRuleImpl(@NotNull ASTNode node) {
     super(node);
@@ -42,6 +43,21 @@ public class XtextAbstractRuleImpl extends ASTWrapperPsiElement implements Xtext
   @Nullable
   public XtextTerminalRule getTerminalRule() {
     return findChildByClass(XtextTerminalRule.class);
+  }
+
+  @Override
+  public String getName() {
+    return XtextPsiImplUtil.getName(this);
+  }
+
+  @Override
+  public PsiElement setName(String newName) {
+    return XtextPsiImplUtil.setName(this, newName);
+  }
+
+  @Override
+  public PsiElement getNameIdentifier() {
+    return XtextPsiImplUtil.getNameIdentifier(this);
   }
 
 }

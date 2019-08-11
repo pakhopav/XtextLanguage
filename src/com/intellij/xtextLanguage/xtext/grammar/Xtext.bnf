@@ -61,7 +61,7 @@
 
   parserClass="com.intellij.xtextLanguage.xtext.parser.XtextParser"
 
-  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+  extends="com.intellij.xtextLanguage.xtext.psi.impl.XtextPsiCompositeElementImpl"
   psiClassPrefix="Xtext"
   psiImplClassSuffix="Impl"
   psiPackage="com.intellij.xtextLanguage.xtext.psi"
@@ -70,7 +70,7 @@
   elementTypeHolderClass="com.intellij.xtextLanguage.xtext.psi.XtextTypes"
   elementTypeClass="com.intellij.xtextLanguage.xtext.psi.XtextElementType"
   tokenTypeClass="com.intellij.xtextLanguage.xtext.psi.XtextTokenType"
-
+  psiImplUtilClass="com.intellij.xtextLanguage.xtext.psi.impl.XtextPsiImplUtil"
   generateTokenAccessors=true
   generateTokens=true
 }
@@ -85,6 +85,11 @@ GrammarID::=
 	ValidID ('.' ValidID)*
 
 AbstractRule::= ParserRule | TerminalRule | EnumRule
+{
+mixin="com.intellij.xtextLanguage.xtext.psi.impl.XtextNamedElementImpl"
+implements="com.intellij.xtextLanguage.xtext.psi.XtextNamedElement"
+methods=[getName setName getNameIdentifier]
+}
 
 AbstractMetamodelDeclaration::=
 	GeneratedMetamodel | ReferencedMetamodel

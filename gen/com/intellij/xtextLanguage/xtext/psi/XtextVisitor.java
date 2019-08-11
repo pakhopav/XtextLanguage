@@ -16,7 +16,7 @@ public class XtextVisitor extends PsiElementVisitor {
   }
 
   public void visitAbstractRule(@NotNull XtextAbstractRule o) {
-    visitPsiElement(o);
+    visitNamedElement(o);
   }
 
   public void visitAbstractTerminal(@NotNull XtextAbstractTerminal o) {
@@ -256,6 +256,10 @@ public class XtextVisitor extends PsiElementVisitor {
   }
 
   public void visitWildcard(@NotNull XtextWildcard o) {
+    visitPsiElement(o);
+  }
+
+  public void visitNamedElement(@NotNull XtextNamedElement o) {
     visitPsiElement(o);
   }
 
