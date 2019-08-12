@@ -8,11 +8,11 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.intellij.xtextLanguage.xtext.psi.XtextTypes.*;
-import com.intellij.xtextLanguage.xtext.psi.impl.XtextPsiCompositeElementImpl;
+import com.intellij.xtextLanguage.xtext.psi.impl.XtextAbstractRuleImpl;
 import com.intellij.xtextLanguage.xtext.psi.*;
 import com.intellij.xtextLanguage.xtext.psi.impl.XtextPsiImplUtil;
 
-public class XtextEnumRuleImpl extends XtextPsiCompositeElementImpl implements XtextEnumRule {
+public class XtextEnumRuleImpl extends XtextAbstractRuleImpl implements XtextEnumRule {
 
   public XtextEnumRuleImpl(@NotNull ASTNode node) {
     super(node);
@@ -73,6 +73,21 @@ public class XtextEnumRuleImpl extends XtextPsiCompositeElementImpl implements X
   @NotNull
   public PsiElement getSemicolon() {
     return findNotNullChildByType(SEMICOLON);
+  }
+
+  @Override
+  public String getName() {
+    return XtextPsiImplUtil.getName(this);
+  }
+
+  @Override
+  public PsiElement setName(String newName) {
+    return XtextPsiImplUtil.setName(this, newName);
+  }
+
+  @Override
+  public PsiElement getNameIdentifier() {
+    return XtextPsiImplUtil.getNameIdentifier(this);
   }
 
 }

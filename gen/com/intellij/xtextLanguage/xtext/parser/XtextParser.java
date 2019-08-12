@@ -65,14 +65,12 @@ public class XtextParser implements PsiParser, LightPsiParser {
 
   /* ********************************************************** */
   // ParserRule | TerminalRule | EnumRule
-  public static boolean AbstractRule(PsiBuilder b, int l) {
+  static boolean AbstractRule(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "AbstractRule")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, ABSTRACT_RULE, "<abstract rule>");
     r = ParserRule(b, l + 1);
     if (!r) r = TerminalRule(b, l + 1);
     if (!r) r = EnumRule(b, l + 1);
-    exit_section_(b, l, m, r, false, null);
     return r;
   }
 

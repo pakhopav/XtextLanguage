@@ -10,7 +10,6 @@ public interface XtextTypes {
 
   IElementType ABSTRACT_METAMODEL_DECLARATION = new XtextElementType("ABSTRACT_METAMODEL_DECLARATION");
   IElementType ABSTRACT_NEGATED_TOKEN = new XtextElementType("ABSTRACT_NEGATED_TOKEN");
-  IElementType ABSTRACT_RULE = new XtextElementType("ABSTRACT_RULE");
   IElementType ABSTRACT_TERMINAL = new XtextElementType("ABSTRACT_TERMINAL");
   IElementType ABSTRACT_TOKEN = new XtextElementType("ABSTRACT_TOKEN");
   IElementType ABSTRACT_TOKEN_WITH_CARDINALITY = new XtextElementType("ABSTRACT_TOKEN_WITH_CARDINALITY");
@@ -128,9 +127,6 @@ public interface XtextTypes {
       }
       else if (type == ABSTRACT_NEGATED_TOKEN) {
         return new XtextAbstractNegatedTokenImpl(node);
-      }
-      else if (type == ABSTRACT_RULE) {
-        return new XtextAbstractRuleImpl(node);
       }
       else if (type == ABSTRACT_TERMINAL) {
         return new XtextAbstractTerminalImpl(node);

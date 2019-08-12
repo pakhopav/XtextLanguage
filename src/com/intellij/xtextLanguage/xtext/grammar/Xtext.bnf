@@ -84,7 +84,9 @@ Grammar::=
 GrammarID::=
 	ValidID ('.' ValidID)*
 
- AbstractRule::= ParserRule | TerminalRule | EnumRule
+
+
+private AbstractRule::= ParserRule | TerminalRule | EnumRule
 {
 mixin="com.intellij.xtextLanguage.xtext.psi.impl.XtextNamedElementImpl"
 implements="com.intellij.xtextLanguage.xtext.psi.XtextNamedElement"
@@ -119,11 +121,11 @@ ParserRule ::=
 	('hidden' '(' (REFERENCE_AbstractRule_RuleID/*hiddenTokens+=[AbstractRule|RuleID]*/ (',' REFERENCE_AbstractRule_RuleID)*)? ')')? ':'
 		Alternatives
 	';'
-//{
-//mixin="com.intellij.xtextLanguage.xtext.psi.impl.XtextAbstractRuleImpl"
-//implements="com.intellij.xtextLanguage.xtext.psi.XtextAbstractRule"
-//methods=[getName setName getNameIdentifier]
-//}
+{
+mixin="com.intellij.xtextLanguage.xtext.psi.impl.XtextAbstractRuleImpl"
+implements="com.intellij.xtextLanguage.xtext.psi.XtextAbstractRule"
+methods=[getName setName getNameIdentifier]
+}
 
 RuleNameAndParams::=
 	ValidID ('<' (Parameter (',' Parameter)*)? '>')?
@@ -274,6 +276,11 @@ TerminalRule ::=
 	'terminal' ('fragment' ValidID | ValidID ('returns' TypeRef)?) ':'
 		TerminalAlternatives
 	';'
+{
+	mixin="com.intellij.xtextLanguage.xtext.psi.impl.XtextAbstractRuleImpl"
+    implements="com.intellij.xtextLanguage.xtext.psi.XtextAbstractRule"
+    methods=[getName setName getNameIdentifier]
+}
 
 
 TerminalAlternatives::=
@@ -326,7 +333,11 @@ EnumRule::=
 	'enum' ValidID ('returns' TypeRef)? ':'
 		EnumLiterals
 	';'
-
+{
+    mixin="com.intellij.xtextLanguage.xtext.psi.impl.XtextAbstractRuleImpl"
+    implements="com.intellij.xtextLanguage.xtext.psi.XtextAbstractRule"
+    methods=[getName setName getNameIdentifier]
+}
 
 EnumLiterals::=
 	EnumLiteralDeclaration ( ('|' EnumLiteralDeclaration)+)?

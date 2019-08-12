@@ -5,7 +5,7 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface XtextParserRule extends PsiElement {
+public interface XtextParserRule extends XtextAbstractRule {
 
   @NotNull
   XtextAlternatives getAlternatives();
@@ -45,5 +45,11 @@ public interface XtextParserRule extends PsiElement {
 
   @NotNull
   PsiElement getSemicolon();
+
+  String getName();
+
+  PsiElement setName(String newName);
+
+  PsiElement getNameIdentifier();
 
 }

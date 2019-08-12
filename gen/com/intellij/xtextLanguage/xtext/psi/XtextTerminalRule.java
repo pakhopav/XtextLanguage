@@ -5,7 +5,7 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface XtextTerminalRule extends PsiElement {
+public interface XtextTerminalRule extends XtextAbstractRule {
 
   @NotNull
   List<XtextAnnotation> getAnnotationList();
@@ -33,5 +33,11 @@ public interface XtextTerminalRule extends PsiElement {
 
   @NotNull
   PsiElement getTerminal();
+
+  String getName();
+
+  PsiElement setName(String newName);
+
+  PsiElement getNameIdentifier();
 
 }
