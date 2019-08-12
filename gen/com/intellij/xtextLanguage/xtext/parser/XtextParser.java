@@ -1554,6 +1554,17 @@ public class XtextParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
+  // ValidID
+  public static boolean RULE_IDENTIFIER(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "RULE_IDENTIFIER")) return false;
+    boolean r;
+    Marker m = enter_section_(b, l, _NONE_, RULE_IDENTIFIER, "<rule identifier>");
+    r = ValidID(b, l + 1);
+    exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  /* ********************************************************** */
   // 'import' REFERENCE_ecoreEPackage_STRING ('as' ValidID)?
   public static boolean ReferencedMetamodel(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "ReferencedMetamodel")) return false;

@@ -5,7 +5,6 @@ package com.intellij.xtextLanguage.xtext;
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.xtextLanguage.xtext.psi.XtextTypes;
-
 import static com.intellij.psi.TokenType.BAD_CHARACTER; // Pre-defined bad character token.
 import static com.intellij.psi.TokenType.WHITE_SPACE; // Pre-defined whitespace character token.
 import static com.intellij.xtextLanguage.xtext.psi.XtextTypes.*; // Note that is the class which is specified as `elementTypeHolderClass`
@@ -17,7 +16,7 @@ import static com.intellij.xtextLanguage.xtext.psi.XtextTypes.*; // Note that is
  * <a href="http://www.jflex.de/">JFlex</a> 1.7.0
  * from the specification file <tt>Xtext.flex</tt>
  */
-public class XtextLexer implements FlexLexer {
+public class _XtextLexer implements FlexLexer {
 
   /** This character denotes the end of file */
   public static final int YYEOF = -1;
@@ -353,13 +352,18 @@ public class XtextLexer implements FlexLexer {
   /** denotes if the user-EOF-code has already been executed */
   private boolean zzEOFDone;
 
+  /* user code: */
+public _XtextLexer(){
+   this((java.io.Reader)null);
+ }
+
 
   /**
    * Creates a new scanner
    *
    * @param   in  the java.io.Reader to read input from.
    */
-  public XtextLexer(java.io.Reader in) {
+  public _XtextLexer(java.io.Reader in) {
     this.zzReader = in;
   }
 

@@ -3,7 +3,6 @@ package com.intellij.xtextLanguage.xtext;
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.xtextLanguage.xtext.psi.XtextTypes;
-
 import static com.intellij.psi.TokenType.BAD_CHARACTER; // Pre-defined bad character token.
 import static com.intellij.psi.TokenType.WHITE_SPACE; // Pre-defined whitespace character token.
 import static com.intellij.xtextLanguage.xtext.psi.XtextTypes.*; // Note that is the class which is specified as `elementTypeHolderClass`
@@ -12,12 +11,16 @@ import static com.intellij.xtextLanguage.xtext.psi.XtextTypes.*; // Note that is
 %%
 
 %public
-%class XtextLexer // Name of the lexer class which will be generated.
+%class _XtextLexer // Name of the lexer class which will be generated.
 %implements FlexLexer
 %function advance
 %type IElementType
 %unicode
-
+%{
+public _XtextLexer(){
+   this((java.io.Reader)null);
+ }
+%}
 ID=\^?[a-zA-Z$_][a-zA-Z0-9$_]*
 STRING = (\"([^\"\\]|\\.)*\"|'([^'\\]|\\.)*')
 INT=[0-9]+

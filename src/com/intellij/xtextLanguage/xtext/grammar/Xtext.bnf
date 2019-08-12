@@ -84,7 +84,7 @@ Grammar::=
 GrammarID::=
 	ValidID ('.' ValidID)*
 
-AbstractRule::= ParserRule | TerminalRule | EnumRule
+ AbstractRule::= ParserRule | TerminalRule | EnumRule
 {
 mixin="com.intellij.xtextLanguage.xtext.psi.impl.XtextNamedElementImpl"
 implements="com.intellij.xtextLanguage.xtext.psi.XtextNamedElement"
@@ -119,7 +119,11 @@ ParserRule ::=
 	('hidden' '(' (REFERENCE_AbstractRule_RuleID/*hiddenTokens+=[AbstractRule|RuleID]*/ (',' REFERENCE_AbstractRule_RuleID)*)? ')')? ':'
 		Alternatives
 	';'
-
+//{
+//mixin="com.intellij.xtextLanguage.xtext.psi.impl.XtextAbstractRuleImpl"
+//implements="com.intellij.xtextLanguage.xtext.psi.XtextAbstractRule"
+//methods=[getName setName getNameIdentifier]
+//}
 
 RuleNameAndParams::=
 	ValidID ('<' (Parameter (',' Parameter)*)? '>')?
@@ -340,3 +344,7 @@ REFERENCE_Parameter_ID::=ID
 REFERENCE_AbstractMetamodelDeclaration::=ID
 REFERENCE_ecoreEClassifier::=ID
 REFERENCE_ecoreEEnumLiteral::=ID
+
+//SetName helper rules
+
+RULE_IDENTIFIER ::= ValidID

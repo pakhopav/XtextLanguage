@@ -199,6 +199,10 @@ public class XtextVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitRuleIdentifier(@NotNull XtextRuleIdentifier o) {
+    visitPsiElement(o);
+  }
+
   public void visitReferencedMetamodel(@NotNull XtextReferencedMetamodel o) {
     visitPsiElement(o);
   }

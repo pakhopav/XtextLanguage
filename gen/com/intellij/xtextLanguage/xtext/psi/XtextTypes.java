@@ -59,6 +59,7 @@ public interface XtextTypes {
   IElementType REFERENCE_PARAMETER_ID = new XtextElementType("REFERENCE_PARAMETER_ID");
   IElementType RULE_CALL = new XtextElementType("RULE_CALL");
   IElementType RULE_ID = new XtextElementType("RULE_ID");
+  IElementType RULE_IDENTIFIER = new XtextElementType("RULE_IDENTIFIER");
   IElementType RULE_NAME_AND_PARAMS = new XtextElementType("RULE_NAME_AND_PARAMS");
   IElementType TERMINAL_ALTERNATIVES = new XtextElementType("TERMINAL_ALTERNATIVES");
   IElementType TERMINAL_GROUP = new XtextElementType("TERMINAL_GROUP");
@@ -274,6 +275,9 @@ public interface XtextTypes {
       }
       else if (type == RULE_ID) {
         return new XtextRuleIDImpl(node);
+      }
+      else if (type == RULE_IDENTIFIER) {
+        return new XtextRuleIdentifierImpl(node);
       }
       else if (type == RULE_NAME_AND_PARAMS) {
         return new XtextRuleNameAndParamsImpl(node);
