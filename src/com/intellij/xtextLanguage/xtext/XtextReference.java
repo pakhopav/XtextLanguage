@@ -43,8 +43,9 @@ public class XtextReference<T extends XtextNamedElement> extends PsiReferenceBas
     }
 
     public <T extends XtextNamedElement> ResolveResult[] XtextMultiResolve(boolean incompleteCode, final Class<T> tClass) {
+        PsiFile file = myElement.getContainingFile();
         Project project = myElement.getProject();
-        List<T> elements = XtextUtil.findElements(project, tClass, key);
+        List<T> elements = XtextUtil.findElementsInCurrentFile(file, tClass, key);
         List<ResolveResult> results = new ArrayList<ResolveResult>();
         for (T element : elements) {
             results.add(new PsiElementResolveResult(element));
@@ -53,8 +54,9 @@ public class XtextReference<T extends XtextNamedElement> extends PsiReferenceBas
     }
 
     public <T extends XtextNamedElement> Object[] XtextGetVariants(Class<T> tClass) {
+        PsiFile file = myElement.getContainingFile();
         Project project = myElement.getProject();
-        List<T> elements = XtextUtil.findElements(project, tClass);
+        List<T> elements = XtextUtil.findElementsInCurrentFile(file, tClass);
         List<LookupElement> variants = new ArrayList<LookupElement>();
         for (final T element : elements) {
             if (element.getName() != null && element.getName().length() > 0) {
